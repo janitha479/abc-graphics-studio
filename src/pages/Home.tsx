@@ -79,13 +79,13 @@ const Home = () => {
       </section>
 
       {/* Services Preview */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-[hsl(var(--brand-dark))]">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
               What We <span className="gradient-text">Create</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-white/70 max-w-2xl mx-auto">
               From concept to completion, we deliver creative solutions that make an impact
             </p>
           </div>
@@ -94,13 +94,13 @@ const Home = () => {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="group p-8 rounded-2xl bg-card border border-border hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1"
+                className="group p-8 rounded-2xl bg-[hsl(var(--brand-black))] hover:bg-[hsl(var(--brand-black))]/80 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1"
               >
                 <div className="text-accent mb-4 group-hover:scale-110 transition-transform">
                   {service.icon}
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                <p className="text-muted-foreground">{service.description}</p>
+                <h3 className="text-xl font-semibold mb-2 text-white">{service.title}</h3>
+                <p className="text-white/70">{service.description}</p>
               </div>
             ))}
             <div className="p-8 rounded-2xl bg-gradient-to-br from-accent to-[hsl(var(--brand-gold))] text-white flex items-center justify-center group hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
@@ -114,16 +114,16 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-[hsl(var(--brand-dark))] text-white">
+      <section className="py-24 bg-[hsl(var(--brand-black))] text-white">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-fade-in">
             Ready to Start Your <span className="gradient-text">Project</span>?
           </h2>
-          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto animate-fade-in">
+          <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto animate-fade-in">
             Let's create something amazing together. Get in touch and let's discuss your vision.
           </p>
           <Link to="/contact">
-            <Button size="lg" className="bg-gradient-to-r from-accent to-[hsl(var(--brand-gold))] text-white hover:opacity-90 transition-opacity">
+            <Button size="lg" className="bg-gradient-to-r from-accent to-[hsl(var(--brand-gold))] text-white hover:opacity-90 transition-opacity border-0">
               Get Started
               <ArrowRight className="ml-2" size={20} />
             </Button>

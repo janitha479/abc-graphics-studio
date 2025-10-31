@@ -21,13 +21,13 @@ const About = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-background to-muted">
+      <section className="pt-32 pb-16 bg-[hsl(var(--brand-black))]">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
               About <span className="gradient-text">ABC Graphics</span>
             </h1>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-white/70">
               A creative studio dedicated to transforming ideas into stunning visual experiences
             </p>
           </div>
@@ -35,17 +35,17 @@ const About = () => {
       </section>
 
       {/* Story Section */}
-      <section className="py-16">
+      <section className="py-16 bg-[hsl(var(--brand-dark))]">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto">
             <div className="prose prose-lg max-w-none">
-              <p className="text-lg leading-relaxed text-foreground mb-6">
+              <p className="text-lg leading-relaxed text-white mb-6">
                 ABC Graphics is a creative studio specializing in graphic design and web development. We believe that great design is more than just aesthetics — it's about creating meaningful connections between brands and their audiences.
               </p>
-              <p className="text-lg leading-relaxed text-foreground mb-6">
+              <p className="text-lg leading-relaxed text-white mb-6">
                 With years of experience in the creative industry, we've helped businesses of all sizes establish their visual identity and digital presence. Our approach combines artistic vision with strategic thinking to deliver designs that not only look beautiful but also drive results.
               </p>
-              <p className="text-lg leading-relaxed text-foreground">
+              <p className="text-lg leading-relaxed text-white">
                 Whether you're a startup looking for your first logo or an established company seeking a website refresh, we bring the same level of passion, creativity, and attention to detail to every project.
               </p>
             </div>
@@ -54,22 +54,22 @@ const About = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-16 bg-muted/50">
+      <section className="py-16 bg-[hsl(var(--brand-dark))]">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">
             Our <span className="gradient-text">Values</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {values.map((value, index) => (
               <div
                 key={index}
-                className="text-center p-8 rounded-2xl bg-background border border-border hover:border-accent/50 transition-all duration-300 hover:-translate-y-1"
+                className="text-center p-8 rounded-2xl bg-[hsl(var(--brand-black))] hover:bg-[hsl(var(--brand-black))]/80 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-accent to-[hsl(var(--brand-gold))] text-white mb-4">
                   {value.icon}
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
-                <p className="text-muted-foreground">{value.description}</p>
+                <h3 className="text-xl font-semibold mb-2 text-white">{value.title}</h3>
+                <p className="text-white/70">{value.description}</p>
               </div>
             ))}
           </div>
@@ -77,20 +77,20 @@ const About = () => {
       </section>
 
       {/* Tools & Skills */}
-      <section className="py-16">
+      <section className="py-16 bg-[hsl(var(--brand-dark))]">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">
               Tools & <span className="gradient-text">Technologies</span>
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {tools.map((tool, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-2 p-4 rounded-xl bg-card border border-border hover:border-accent/50 transition-all duration-300"
+                  className="flex items-center gap-2 p-4 rounded-xl bg-[hsl(var(--brand-black))] hover:bg-[hsl(var(--brand-black))]/80 transition-all duration-300"
                 >
                   <CheckCircle className="text-accent flex-shrink-0" size={20} />
-                  <span className="font-medium">{tool}</span>
+                  <span className="font-medium text-white">{tool}</span>
                 </div>
               ))}
             </div>

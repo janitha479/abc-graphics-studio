@@ -79,13 +79,13 @@ const Portfolio = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-background to-muted">
+      <section className="pt-32 pb-16 bg-[hsl(var(--brand-black))]">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
               Our <span className="gradient-text">Portfolio</span>
             </h1>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-white/70">
               Explore our creative work across design and development
             </p>
           </div>
@@ -93,7 +93,7 @@ const Portfolio = () => {
       </section>
 
       {/* Filter & Gallery */}
-      <section className="py-16">
+      <section className="py-16 bg-[hsl(var(--brand-dark))]">
         <div className="container mx-auto px-6">
           {/* Filter Buttons */}
           <div className="flex flex-wrap justify-center gap-3 mb-12">
@@ -104,7 +104,7 @@ const Portfolio = () => {
                 className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
                   filter === category
                     ? "bg-gradient-to-r from-accent to-[hsl(var(--brand-gold))] text-white shadow-lg"
-                    : "bg-muted text-foreground hover:bg-muted-foreground/10"
+                    : "bg-[hsl(var(--brand-black))] text-white hover:bg-[hsl(var(--brand-black))]/80"
                 }`}
               >
                 {category}
@@ -117,7 +117,7 @@ const Portfolio = () => {
             {filteredProjects.map((project, index) => (
               <div
                 key={project.id}
-                className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-accent/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl animate-fade-in"
+                className="group relative rounded-2xl overflow-hidden bg-[hsl(var(--brand-black))] hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="aspect-[4/3] overflow-hidden">

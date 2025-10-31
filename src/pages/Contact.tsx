@@ -43,13 +43,13 @@ const Contact = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-background to-muted">
+      <section className="pt-32 pb-16 bg-[hsl(var(--brand-black))]">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
               Let's <span className="gradient-text">Connect</span>
             </h1>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-white/70">
               Have a project in mind? Get in touch and let's create something amazing
             </p>
           </div>
@@ -57,50 +57,50 @@ const Contact = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-16">
+      <section className="py-16 bg-[hsl(var(--brand-dark))]">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Info */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-3xl font-bold mb-6">Get in Touch</h2>
-                <p className="text-muted-foreground mb-8">
+                <h2 className="text-3xl font-bold mb-6 text-white">Get in Touch</h2>
+                <p className="text-white/70 mb-8">
                   Ready to start your project? Fill out the form and we'll get back to you within 24 hours.
                 </p>
               </div>
 
               <div className="space-y-6">
-                <div className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border">
+                <div className="flex items-start gap-4 p-4 rounded-xl bg-[hsl(var(--brand-black))]">
                   <div className="p-3 rounded-lg bg-gradient-to-r from-accent to-[hsl(var(--brand-gold))] text-white">
                     <Mail size={24} />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Email</h3>
-                    <a href="mailto:info@abcgraphics.com" className="text-muted-foreground hover:text-accent transition-colors">
+                    <h3 className="font-semibold mb-1 text-white">Email</h3>
+                    <a href="mailto:info@abcgraphics.com" className="text-white/70 hover:text-accent transition-colors">
                       info@abcgraphics.com
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border">
+                <div className="flex items-start gap-4 p-4 rounded-xl bg-[hsl(var(--brand-black))]">
                   <div className="p-3 rounded-lg bg-gradient-to-r from-accent to-[hsl(var(--brand-gold))] text-white">
                     <Phone size={24} />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Phone</h3>
-                    <a href="tel:+1234567890" className="text-muted-foreground hover:text-accent transition-colors">
+                    <h3 className="font-semibold mb-1 text-white">Phone</h3>
+                    <a href="tel:+1234567890" className="text-white/70 hover:text-accent transition-colors">
                       +1 (234) 567-890
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border">
+                <div className="flex items-start gap-4 p-4 rounded-xl bg-[hsl(var(--brand-black))]">
                   <div className="p-3 rounded-lg bg-gradient-to-r from-accent to-[hsl(var(--brand-gold))] text-white">
                     <MapPin size={24} />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Location</h3>
-                    <p className="text-muted-foreground">
+                    <h3 className="font-semibold mb-1 text-white">Location</h3>
+                    <p className="text-white/70">
                       Remote Studio<br />
                       Serving Clients Worldwide
                     </p>
@@ -117,10 +117,10 @@ const Contact = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-card border border-border rounded-2xl p-8">
+            <div className="bg-[hsl(var(--brand-black))] rounded-2xl p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium mb-2 text-white">
                     Name *
                   </label>
                   <Input
@@ -130,11 +130,12 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="Your name"
                     required
+                    className="bg-[hsl(var(--brand-dark))] border-[hsl(var(--brand-dark))] text-white placeholder:text-white/50"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium mb-2 text-white">
                     Email *
                   </label>
                   <Input
@@ -145,11 +146,12 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="your@email.com"
                     required
+                    className="bg-[hsl(var(--brand-dark))] border-[hsl(var(--brand-dark))] text-white placeholder:text-white/50"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium mb-2 text-white">
                     Subject
                   </label>
                   <Input
@@ -158,11 +160,12 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     placeholder="What's this about?"
+                    className="bg-[hsl(var(--brand-dark))] border-[hsl(var(--brand-dark))] text-white placeholder:text-white/50"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium mb-2 text-white">
                     Message *
                   </label>
                   <Textarea
@@ -173,13 +176,14 @@ const Contact = () => {
                     placeholder="Tell us about your project..."
                     rows={6}
                     required
+                    className="bg-[hsl(var(--brand-dark))] border-[hsl(var(--brand-dark))] text-white placeholder:text-white/50"
                   />
                 </div>
 
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-gradient-to-r from-accent to-[hsl(var(--brand-gold))] text-white hover:opacity-90 transition-opacity"
+                  className="w-full bg-gradient-to-r from-accent to-[hsl(var(--brand-gold))] text-white hover:opacity-90 transition-opacity border-0"
                 >
                   Send Message
                   <Send className="ml-2" size={18} />
