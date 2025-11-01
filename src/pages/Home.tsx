@@ -62,7 +62,7 @@ const Home = () => {
                 </Button>
               </Link>
               <Link to="/contact">
-                <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10">
+                <Button size="lg" className="bg-gradient-to-r from-[hsl(var(--brand-dark))] to-white text-white hover:opacity-90 transition-opacity">
                   Let's Collaborate
                 </Button>
               </Link>

@@ -26,15 +26,13 @@ const Navigation = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-md shadow-md" : "bg-transparent"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md shadow-md"
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3 group">
             <img src={logo} alt="ABC Graphics Logo" className="h-10 w-auto transition-transform group-hover:scale-110" />
-            <span className="text-xl font-bold text-foreground hidden sm:block">ABC Graphics</span>
+            <span className="text-xl font-bold gradient-text hidden sm:block">ABC Graphics</span>
           </Link>
 
           {/* Desktop Navigation */}
