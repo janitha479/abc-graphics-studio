@@ -1,8 +1,19 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Palette, Code, Megaphone, FileText, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
 
 const Home = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
   const services = [
     {
       icon: <Palette size={32} />,
@@ -43,6 +54,16 @@ const Home = () => {
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-accent to-[hsl(var(--brand-gold))] rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-[hsl(var(--brand-gold))] to-accent rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
+
+        {/* Mouse Cursor Animation */}
+        <div 
+          className="absolute w-96 h-96 bg-gradient-to-r from-accent to-[hsl(var(--brand-gold))] rounded-full blur-3xl opacity-30 pointer-events-none transition-all duration-300"
+          style={{
+            left: `${mousePosition.x}px`,
+            top: `${mousePosition.y}px`,
+            transform: 'translate(-50%, -50%)'
+          }}
+        ></div>
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up">
