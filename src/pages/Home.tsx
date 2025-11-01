@@ -53,6 +53,7 @@ const Home = () => {
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-accent to-[hsl(var(--brand-gold))] rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-[hsl(var(--brand-gold))] to-accent rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 right-1/3 w-80 h-80 bg-gradient-to-r from-accent to-[hsl(var(--brand-gold))] rounded-full blur-3xl animate-pulse delay-500"></div>
         </div>
 
         {/* Mouse Cursor Animation */}
