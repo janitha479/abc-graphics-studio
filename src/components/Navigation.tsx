@@ -7,14 +7,13 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
       
       // Track active section
-      const sections = ["home", "about", "services", "contact"];
+      const sections = ["home", "about", "portfolio", "services", "contact"];
       const currentSection = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -36,7 +35,7 @@ const Navigation = () => {
   const navLinks = [
     { name: "Home", path: "/", section: "home" },
     { name: "About", path: "/", section: "about" },
-    { name: "Portfolio", path: "/portfolio", section: null },
+    { name: "Portfolio", path: "/", section: "portfolio" },
     { name: "Services", path: "/", section: "services" },
     { name: "Contact", path: "/", section: "contact" },
   ];
@@ -72,7 +71,7 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => {
-              const isActive = link.section ? activeSection === link.section : location.pathname === link.path;
+              const isActive = activeSection === link.section;
               return (
                 <Link
                   key={link.name}
@@ -105,7 +104,7 @@ const Navigation = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden mt-4 pb-4 animate-fade-in">
             {navLinks.map((link) => {
-              const isActive = link.section ? activeSection === link.section : location.pathname === link.path;
+              const isActive = activeSection === link.section;
               return (
                 <Link
                   key={link.name}
