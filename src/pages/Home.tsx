@@ -95,9 +95,24 @@ const Home = () => {
       description: "Unique brand identities that stand out"
     },
     {
+      icon: <Megaphone size={32} />,
+      title: "Social Media Design",
+      description: "Eye-catching digital content for your platforms"
+    },
+    {
+      icon: <FileText size={32} />,
+      title: "Print Design",
+      description: "Professional marketing materials"
+    },
+    {
+      icon: <FileText size={32} />,
+      title: "Tute/Book Cover Page Design",
+      description: "Creative covers that capture attention"
+    },
+    {
       icon: <Sparkles size={32} />,
-      title: "Branding",
-      description: "Complete visual identity systems"
+      title: "UI/UX Design",
+      description: "User-centered digital experiences"
     },
     {
       icon: <Code size={32} />,
@@ -105,14 +120,9 @@ const Home = () => {
       description: "Modern, responsive websites"
     },
     {
-      icon: <Megaphone size={32} />,
-      title: "Social Media",
-      description: "Eye-catching digital content"
-    },
-    {
-      icon: <FileText size={32} />,
-      title: "Print Design",
-      description: "Professional marketing materials"
+      icon: <Code size={32} />,
+      title: "Software Development",
+      description: "Custom software solutions"
     }
   ];
 

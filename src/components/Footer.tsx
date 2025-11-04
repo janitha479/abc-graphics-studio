@@ -42,10 +42,12 @@ const Footer = () => {
             <h3 className="font-semibold mb-4 gradient-text">Services</h3>
             <div className="space-y-2 text-sm text-white/80">
               <p>Logo Design</p>
-              <p>Branding</p>
-              <p>Web Development</p>
-              <p>Social Media</p>
+              <p>Social Media Design</p>
               <p>Print Design</p>
+              <p>Tute/Book Cover Design</p>
+              <p>UI/UX Design</p>
+              <p>Web Development</p>
+              <p>Software Development</p>
             </div>
           </div>
 
