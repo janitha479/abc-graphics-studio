@@ -17,12 +17,29 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Portfolio", path: "/portfolio" },
-    { name: "Services", path: "/services" },
-    { name: "Contact", path: "/contact" },
+    { name: "Home", path: "/", section: "home" },
+    { name: "About", path: "/", section: "about" },
+    { name: "Portfolio", path: "/portfolio", section: null },
+    { name: "Services", path: "/", section: "services" },
+    { name: "Contact", path: "/", section: "contact" },
   ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, section: string | null) => {
+    if (section) {
+      e.preventDefault();
+      const element = document.getElementById(section);
+      if (element) {
+        const offset = 80; // navbar height
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+      setIsMobileMenuOpen(false);
+    }
+  };
 
   return (
     <nav
@@ -39,14 +56,15 @@ const Navigation = () => {
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
-                key={link.path}
+                key={link.name}
                 to={link.path}
+                onClick={(e) => handleNavClick(e, link.section)}
                 className={`relative font-medium transition-colors hover:text-accent ${
-                  location.pathname === link.path ? "text-accent" : "text-foreground"
+                  location.pathname === link.path && link.section === null ? "text-accent" : "text-foreground"
                 }`}
               >
                 {link.name}
-                {location.pathname === link.path && (
+                {location.pathname === link.path && link.section === null && (
                   <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-accent to-[hsl(var(--brand-gold))]"></span>
                 )}
               </Link>
@@ -68,11 +86,11 @@ const Navigation = () => {
           <div className="md:hidden mt-4 pb-4 animate-fade-in">
             {navLinks.map((link) => (
               <Link
-                key={link.path}
+                key={link.name}
                 to={link.path}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => handleNavClick(e, link.section)}
                 className={`block py-3 font-medium transition-colors hover:text-accent ${
-                  location.pathname === link.path ? "text-accent" : "text-foreground"
+                  location.pathname === link.path && link.section === null ? "text-accent" : "text-foreground"
                 }`}
               >
                 {link.name}

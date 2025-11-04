@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Palette, Code, Megaphone, FileText, Sparkles } from "lucide-react";
+import { ArrowRight, Palette, Code, Megaphone, FileText, Sparkles, CheckCircle, Zap, Heart, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 
@@ -42,10 +42,27 @@ const Home = () => {
     }
   ];
 
+  const values = [
+    { icon: <Zap size={24} />, title: "Innovation", description: "Pushing creative boundaries" },
+    { icon: <Heart size={24} />, title: "Passion", description: "Loving what we do" },
+    { icon: <Target size={24} />, title: "Precision", description: "Attention to detail" },
+  ];
+
+  const tools = [
+    "Adobe Photoshop",
+    "Adobe Illustrator",
+    "Figma",
+    "Adobe XD",
+    "VS Code",
+    "React",
+    "Tailwind CSS",
+    "WordPress",
+  ];
+
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-black text-white overflow-hidden">
+      <section id="home" className="relative min-h-screen flex items-center justify-center bg-black text-white overflow-hidden">
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-black via-black/90 to-[hsl(var(--brand-dark))]/50"></div>
         
@@ -56,13 +73,21 @@ const Home = () => {
           <div className="absolute top-1/2 right-1/3 w-80 h-80 bg-gradient-to-r from-accent to-[hsl(var(--brand-gold))] rounded-full blur-3xl animate-pulse delay-500"></div>
         </div>
 
-        {/* Mouse Cursor Animation */}
+        {/* Mouse Cursor Animations */}
         <div 
           className="absolute w-96 h-96 bg-gradient-to-r from-accent to-[hsl(var(--brand-gold))] rounded-full blur-3xl opacity-30 pointer-events-none transition-all duration-300"
           style={{
             left: `${mousePosition.x}px`,
             top: `${mousePosition.y}px`,
             transform: 'translate(-50%, -50%)'
+          }}
+        ></div>
+        <div 
+          className="absolute w-64 h-64 bg-gradient-to-r from-[hsl(var(--brand-gold))] to-accent rounded-full blur-3xl opacity-20 pointer-events-none transition-all duration-500"
+          style={{
+            left: `${mousePosition.x}px`,
+            top: `${mousePosition.y}px`,
+            transform: 'translate(-30%, -30%)'
           }}
         ></div>
 
@@ -100,8 +125,73 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Services Preview */}
-      <section className="py-24 bg-[hsl(var(--brand-dark))]">
+      {/* About Section */}
+      <section id="about" className="py-24 bg-[hsl(var(--brand-black))]">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center animate-fade-in mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+              About <span className="gradient-text">ABC Graphics</span>
+            </h2>
+            <p className="text-xl text-white/70">
+              A creative studio dedicated to transforming ideas into stunning visual experiences
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto mb-16">
+            <div className="space-y-6">
+              <p className="text-lg leading-relaxed text-white">
+                ABC Graphics is a creative studio specializing in graphic design and web development. We believe that great design is more than just aesthetics — it's about creating meaningful connections between brands and their audiences.
+              </p>
+              <p className="text-lg leading-relaxed text-white">
+                With years of experience in the creative industry, we've helped businesses of all sizes establish their visual identity and digital presence. Our approach combines artistic vision with strategic thinking to deliver designs that not only look beautiful but also drive results.
+              </p>
+              <p className="text-lg leading-relaxed text-white">
+                Whether you're a startup looking for your first logo or an established company seeking a website refresh, we bring the same level of passion, creativity, and attention to detail to every project.
+              </p>
+            </div>
+          </div>
+
+          <div className="mb-16">
+            <h3 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">
+              Our <span className="gradient-text">Values</span>
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              {values.map((value, index) => (
+                <div
+                  key={index}
+                  className="text-center p-8 rounded-2xl bg-[hsl(var(--brand-dark))] hover:bg-[hsl(var(--brand-dark))]/80 transition-all duration-300 hover:-translate-y-1"
+                >
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-accent to-[hsl(var(--brand-gold))] text-white mb-4">
+                    {value.icon}
+                  </div>
+                  <h4 className="text-xl font-semibold mb-2 text-white">{value.title}</h4>
+                  <p className="text-white/70">{value.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">
+              Tools & <span className="gradient-text">Technologies</span>
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+              {tools.map((tool, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-2 p-4 rounded-xl bg-[hsl(var(--brand-dark))] hover:bg-[hsl(var(--brand-dark))]/80 transition-all duration-300"
+                >
+                  <CheckCircle className="text-accent flex-shrink-0" size={20} />
+                  <span className="font-medium text-white">{tool}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="py-24 bg-[hsl(var(--brand-dark))]">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
@@ -135,8 +225,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-[hsl(var(--brand-black))] text-white">
+      {/* Contact Section */}
+      <section id="contact" className="py-24 bg-[hsl(var(--brand-black))] text-white">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-fade-in">
             Ready to Start Your <span className="gradient-text">Project</span>?
