@@ -268,7 +268,7 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-24 bg-[hsl(var(--brand-dark))]">
+      <section id="services" className="py-24 bg-[hsl(var(--brand-dark))] animate-fade-in">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
@@ -283,7 +283,8 @@ const Home = () => {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="group p-8 rounded-2xl bg-[hsl(var(--brand-black))] hover:bg-[hsl(var(--brand-black))]/80 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1"
+                className="group p-8 rounded-2xl bg-[hsl(var(--brand-black))] hover:bg-[hsl(var(--brand-black))]/80 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1 animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="text-accent mb-4 group-hover:scale-110 transition-transform">
                   {service.icon}
@@ -292,18 +293,12 @@ const Home = () => {
                 <p className="text-white/70">{service.description}</p>
               </div>
             ))}
-            <div className="p-8 rounded-2xl bg-gradient-to-br from-accent to-[hsl(var(--brand-gold))] text-white flex items-center justify-center group hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <Link to="/services" className="text-center">
-                <h3 className="text-2xl font-bold mb-2">Explore All Services</h3>
-                <ArrowRight className="mx-auto group-hover:translate-x-2 transition-transform" size={24} />
-              </Link>
-            </div>
           </div>
         </div>
       </section>
 
       {/* Portfolio Section */}
-      <section id="portfolio" className="py-24 bg-[hsl(var(--brand-black))]">
+      <section id="portfolio" className="py-24 bg-[hsl(var(--brand-black))] animate-fade-in">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center animate-fade-in mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
@@ -315,7 +310,7 @@ const Home = () => {
           </div>
 
           {/* Filter Buttons */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
+          <div className="flex flex-wrap justify-center gap-3 mb-12 animate-fade-in">
             {categories.map((category) => (
               <button
                 key={category}
@@ -336,7 +331,7 @@ const Home = () => {
             {filteredProjects.map((project, index) => (
               <div
                 key={project.id}
-                className="group relative rounded-2xl overflow-hidden bg-[hsl(var(--brand-dark))] hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animate-fade-in"
+                className="group relative rounded-2xl overflow-hidden bg-[hsl(var(--brand-dark))] hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="aspect-[4/3] overflow-hidden">
@@ -360,21 +355,36 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-24 bg-[hsl(var(--brand-dark))] text-white">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-fade-in">
-            Ready to Start Your <span className="gradient-text">Project</span>?
-          </h2>
-          <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto animate-fade-in">
-            Let's create something amazing together. Get in touch and let's discuss your vision.
-          </p>
-          <Link to="/contact">
-            <Button size="lg" className="bg-gradient-to-r from-accent to-[hsl(var(--brand-gold))] text-white hover:opacity-90 transition-opacity border-0">
-              Get Started
-              <ArrowRight className="ml-2" size={20} />
-            </Button>
-          </Link>
+      {/* Let's Connect Section */}
+      <section id="contact" className="py-32 bg-gradient-to-br from-[hsl(var(--brand-dark))] to-black text-white relative overflow-hidden">
+        {/* Background Animation */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-accent to-[hsl(var(--brand-gold))] rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-[hsl(var(--brand-gold))] to-accent rounded-full blur-3xl animate-pulse delay-1000"></div>
+        </div>
+        
+        <div className="container mx-auto px-6 text-center relative z-10">
+          <div className="max-w-3xl mx-auto animate-fade-in">
+            <h2 className="text-5xl md:text-6xl font-bold mb-6">
+              Let's <span className="gradient-text">Connect</span>
+            </h2>
+            <p className="text-xl md:text-2xl text-white/80 mb-12">
+              Have a project in mind? Let's create something amazing together. Get in touch and let's discuss your vision.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <a href="mailto:hello@abcgraphics.com" className="group">
+                <Button size="lg" className="bg-gradient-to-r from-accent to-[hsl(var(--brand-gold))] text-white hover:opacity-90 transition-all duration-300 group-hover:scale-105 border-0 shadow-lg">
+                  Send Us an Email
+                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+                </Button>
+              </a>
+              <a href="tel:+1234567890" className="group">
+                <Button size="lg" variant="outline" className="border-2 border-white/30 text-white hover:bg-white/10 transition-all duration-300 group-hover:scale-105 bg-transparent">
+                  Call Us Now
+                </Button>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </>

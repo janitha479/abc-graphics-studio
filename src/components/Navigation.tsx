@@ -13,7 +13,7 @@ const Navigation = () => {
       setIsScrolled(window.scrollY > 20);
       
       // Track active section
-      const sections = ["home", "about", "portfolio", "services", "contact"];
+      const sections = ["home", "about", "services", "portfolio", "contact"];
       const currentSection = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -35,8 +35,8 @@ const Navigation = () => {
   const navLinks = [
     { name: "Home", path: "/", section: "home" },
     { name: "About", path: "/", section: "about" },
-    { name: "Portfolio", path: "/", section: "portfolio" },
     { name: "Services", path: "/", section: "services" },
+    { name: "Portfolio", path: "/", section: "portfolio" },
     { name: "Contact", path: "/", section: "contact" },
   ];
 
