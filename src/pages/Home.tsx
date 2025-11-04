@@ -55,8 +55,11 @@ const Home = () => {
     "Adobe XD",
     "VS Code",
     "React",
+    "Next.js",
+    "Angular",
     "Tailwind CSS",
     "WordPress",
+    "Python",
   ];
 
   return (

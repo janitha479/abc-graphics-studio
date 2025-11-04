@@ -6,12 +6,29 @@ import logo from "@/assets/logo.png";
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+      
+      // Track active section
+      const sections = ["home", "about", "services", "contact"];
+      const currentSection = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+      
+      if (currentSection) {
+        setActiveSection(currentSection);
+      }
     };
+    
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -54,27 +71,30 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                onClick={(e) => handleNavClick(e, link.section)}
-                className={`relative font-medium transition-colors hover:text-accent ${
-                  location.pathname === link.path && link.section === null ? "text-accent" : "text-foreground"
-                }`}
-              >
-                {link.name}
-                {location.pathname === link.path && link.section === null && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-accent to-[hsl(var(--brand-gold))]"></span>
-                )}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = link.section ? activeSection === link.section : location.pathname === link.path;
+              return (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  onClick={(e) => handleNavClick(e, link.section)}
+                  className={`relative font-medium text-white transition-colors hover:text-accent ${
+                    isActive ? "text-accent" : ""
+                  }`}
+                >
+                  {link.name}
+                  {isActive && (
+                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-accent to-[hsl(var(--brand-gold))]"></span>
+                  )}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-foreground hover:text-accent transition-colors"
+            className="md:hidden p-2 text-white hover:text-accent transition-colors"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -84,18 +104,21 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="md:hidden mt-4 pb-4 animate-fade-in">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                onClick={(e) => handleNavClick(e, link.section)}
-                className={`block py-3 font-medium transition-colors hover:text-accent ${
-                  location.pathname === link.path && link.section === null ? "text-accent" : "text-foreground"
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = link.section ? activeSection === link.section : location.pathname === link.path;
+              return (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  onClick={(e) => handleNavClick(e, link.section)}
+                  className={`block py-3 font-medium text-white transition-colors hover:text-accent ${
+                    isActive ? "text-accent" : ""
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
           </div>
         )}
       </div>
