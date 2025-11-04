@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Palette, Code, Megaphone, FileText, Sparkles, CheckCircle, Zap, Heart, Target, ExternalLink } from "lucide-react";
+import { ArrowRight, Palette, Code, Megaphone, FileText, Sparkles, CheckCircle, Zap, Heart, Target, ExternalLink, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 
@@ -205,25 +205,39 @@ const Home = () => {
       {/* About Section */}
       <section id="about" className="py-24 bg-[hsl(var(--brand-black))]">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center animate-fade-in mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-              About <span className="gradient-text">ABC Graphics</span>
-            </h2>
-            <p className="text-xl text-white/70">
-              A creative studio dedicated to transforming ideas into stunning visual experiences
-            </p>
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <div className="animate-fade-in">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+                About <span className="gradient-text">ABC Graphic</span>
+              </h2>
+              <p className="text-2xl font-semibold gradient-text mb-8 animate-pulse">
+                Creativity Beyond Limits !
+              </p>
+              <p className="text-xl text-white/70">
+                A creative studio dedicated to transforming ideas into stunning visual experiences
+              </p>
+            </div>
           </div>
 
-          <div className="max-w-3xl mx-auto mb-16">
-            <div className="space-y-6">
-              <p className="text-lg leading-relaxed text-white">
-                ABC Graphics is a creative studio specializing in graphic design and web development. We believe that great design is more than just aesthetics — it's about creating meaningful connections between brands and their audiences.
+          {/* Mission & Vision */}
+          <div className="max-w-4xl mx-auto mb-16 grid md:grid-cols-2 gap-8">
+            <div className="p-8 rounded-2xl bg-gradient-to-br from-[hsl(var(--brand-dark))] to-[hsl(var(--brand-black))] hover:shadow-2xl hover:shadow-accent/20 transition-all duration-500 hover:-translate-y-2 animate-fade-in border border-white/5">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-accent to-[hsl(var(--brand-gold))] flex items-center justify-center mb-6 animate-pulse">
+                <Target size={32} className="text-white" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 gradient-text">Our Mission</h3>
+              <p className="text-white/80 leading-relaxed">
+                At ABC Graphic, our mission is to transform ideas into powerful digital experiences. We combine creativity, technology, and strategy to deliver exceptional UI/UX designs, web solutions, software applications, and graphic designs that inspire, engage, and elevate brands. Our goal is to help clients achieve success through innovative, user-centered, and visually captivating digital creations.
               </p>
-              <p className="text-lg leading-relaxed text-white">
-                With years of experience in the creative industry, we've helped businesses of all sizes establish their visual identity and digital presence. Our approach combines artistic vision with strategic thinking to deliver designs that not only look beautiful but also drive results.
-              </p>
-              <p className="text-lg leading-relaxed text-white">
-                Whether you're a startup looking for your first logo or an established company seeking a website refresh, we bring the same level of passion, creativity, and attention to detail to every project.
+            </div>
+
+            <div className="p-8 rounded-2xl bg-gradient-to-br from-[hsl(var(--brand-dark))] to-[hsl(var(--brand-black))] hover:shadow-2xl hover:shadow-accent/20 transition-all duration-500 hover:-translate-y-2 animate-fade-in border border-white/5" style={{ animationDelay: '0.2s' }}>
+              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-[hsl(var(--brand-gold))] to-accent flex items-center justify-center mb-6 animate-pulse">
+                <Sparkles size={32} className="text-white" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 gradient-text">Our Vision</h3>
+              <p className="text-white/80 leading-relaxed">
+                To grow as a creative and reliable startup that shapes the future of design and development in Sri Lanka. We strive to build lasting partnerships, empower local businesses with modern digital solutions, and continuously evolve as a team driven by passion, innovation, and purpose.
               </p>
             </div>
           </div>
@@ -364,23 +378,45 @@ const Home = () => {
         </div>
         
         <div className="container mx-auto px-6 text-center relative z-10">
-          <div className="max-w-3xl mx-auto animate-fade-in">
+          <div className="max-w-4xl mx-auto animate-fade-in">
             <h2 className="text-5xl md:text-6xl font-bold mb-6">
               Let's <span className="gradient-text">Connect</span>
             </h2>
             <p className="text-xl md:text-2xl text-white/80 mb-12">
               Have a project in mind? Let's create something amazing together. Get in touch and let's discuss your vision.
             </p>
+            
+            {/* Contact Information Cards */}
+            <div className="grid md:grid-cols-3 gap-6 mb-12">
+              <a href="mailto:abceditinggraphic@gmail.com" className="group p-6 rounded-2xl bg-[hsl(var(--brand-black))]/50 backdrop-blur-sm border border-white/10 hover:border-accent/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-accent/20">
+                <Mail className="mx-auto mb-4 text-accent group-hover:scale-110 transition-transform" size={32} />
+                <h3 className="font-semibold mb-2 text-white">Email Us</h3>
+                <p className="text-sm text-white/70">abceditinggraphic@gmail.com</p>
+              </a>
+              
+              <a href="https://wa.me/94715234993" target="_blank" rel="noopener noreferrer" className="group p-6 rounded-2xl bg-[hsl(var(--brand-black))]/50 backdrop-blur-sm border border-white/10 hover:border-accent/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-accent/20">
+                <Phone className="mx-auto mb-4 text-accent group-hover:scale-110 transition-transform" size={32} />
+                <h3 className="font-semibold mb-2 text-white">WhatsApp</h3>
+                <p className="text-sm text-white/70">071 523 4993</p>
+              </a>
+              
+              <a href="tel:+94759715913" className="group p-6 rounded-2xl bg-[hsl(var(--brand-black))]/50 backdrop-blur-sm border border-white/10 hover:border-accent/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-accent/20">
+                <Phone className="mx-auto mb-4 text-accent group-hover:scale-110 transition-transform" size={32} />
+                <h3 className="font-semibold mb-2 text-white">Call Us</h3>
+                <p className="text-sm text-white/70">075 971 5913</p>
+              </a>
+            </div>
+
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <a href="mailto:hello@abcgraphics.com" className="group">
+              <a href="mailto:abceditinggraphic@gmail.com" className="group">
                 <Button size="lg" className="bg-gradient-to-r from-accent to-[hsl(var(--brand-gold))] text-white hover:opacity-90 transition-all duration-300 group-hover:scale-105 border-0 shadow-lg">
                   Send Us an Email
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
                 </Button>
               </a>
-              <a href="tel:+1234567890" className="group">
+              <a href="https://wa.me/94715234993" target="_blank" rel="noopener noreferrer" className="group">
                 <Button size="lg" variant="outline" className="border-2 border-white/30 text-white hover:bg-white/10 transition-all duration-300 group-hover:scale-105 bg-transparent">
-                  Call Us Now
+                  WhatsApp Us
                 </Button>
               </a>
             </div>

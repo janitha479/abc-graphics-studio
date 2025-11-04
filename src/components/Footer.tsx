@@ -9,7 +9,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="space-y-4">
-            <img src={logo} alt="ABC Graphics" className="h-12 w-auto" />
+            <img src={logo} alt="ABC Graphic" className="h-12 w-auto" />
+            <p className="text-sm font-semibold gradient-text">
+              Creativity Beyond Limits !
+            </p>
             <p className="text-sm text-white/80">
               Designs that Define. Websites that Work.
             </p>
@@ -50,13 +53,17 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4 gradient-text">Contact</h3>
             <div className="space-y-3">
-              <a href="mailto:info@abcgraphics.com" className="flex items-center gap-2 text-sm text-white/80 hover:text-accent transition-colors">
+              <a href="mailto:abceditinggraphic@gmail.com" className="flex items-center gap-2 text-sm text-white/80 hover:text-accent transition-colors">
                 <Mail size={16} />
-                info@abcgraphics.com
+                abceditinggraphic@gmail.com
               </a>
-              <a href="tel:+1234567890" className="flex items-center gap-2 text-sm text-white/80 hover:text-accent transition-colors">
+              <a href="https://wa.me/94715234993" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-white/80 hover:text-accent transition-colors">
                 <Phone size={16} />
-                +1 (234) 567-890
+                071 523 4993 (WhatsApp)
+              </a>
+              <a href="tel:+94759715913" className="flex items-center gap-2 text-sm text-white/80 hover:text-accent transition-colors">
+                <Phone size={16} />
+                075 971 5913 (Call)
               </a>
               <div className="flex gap-4 pt-2">
                 <a href="#" className="text-white/80 hover:text-accent transition-colors">
@@ -77,7 +84,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-white/10 mt-8 pt-8 text-center text-sm text-white/60">
-          <p>&copy; {new Date().getFullYear()} ABC Graphics. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} ABC Graphic. All rights reserved.</p>
         </div>
       </div>
     </footer>
